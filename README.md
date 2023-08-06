@@ -1,22 +1,7 @@
 # unity-ci-template
 
-## Get license workflow
-
-### Converting into a license
-
-Follow these (one-time) steps for simple activation.
-
-1. Run 'Activation' workflow.
-2. Download the manual activation file that now appeared as an artifact and extract the Unity_v20XX.X.XXXX.alf file from the zip.
-3. Visit [license.unity3d.com](https://license.unity3d.com/manual) and upload the Unity_v20XX.X.XXXX.alf file.
-4. You should now receive your license file (Unity_v20XX.x.ulf) as a download. It's ok if the numbers don't match your Unity version exactly.
-
-Then open `Github > Repository > Settings > Secrets`.
-Create the following secrets:
-
-- UNITY_LICENSE - (Copy the contents of your license file into here)
-- UNITY_EMAIL - (Add the email address that you use to login to Unity)
-- UNITY_PASSWORD - (Add the password that you use to login to Unity)
+## Basic project structure
+In top navigation menu select `Assets > Create Default Folders`
 
 ## How to build
 
@@ -52,3 +37,18 @@ rmdir %buildpath%
 ```
 %unitypath% -quit -batchmode -projectpath %projectpath% -executeMethod %method% -logFile %logpath%
 ```
+
+## Graphics
+
+### URP
+
+1. In the top navigation bar, select `Window > Package Manager` to open the Package Manager window.
+2. Select the `All` tab.
+3. Select `Universal RP` from the list of packages.
+4. In the bottom right corner of the Package Manager window, select Install. Unity installs URP directly into your Project.
+5. In the Editor, go to the Project window.
+6. Right-click in the Project window, and select `Create > Rendering > Universal Render Pipeline > Pipeline Asset`
+**OR** navigate to the menu bar at the top, and select `Assets > Create > Rendering > Universal Render Pipeline > Pipeline Asset`
+7. Navigate to `Edit > Project Settings > Graphics`.
+In the Scriptable Render Pipeline Settings field, add the Universal Render Pipeline Asset you created earlier.
+
