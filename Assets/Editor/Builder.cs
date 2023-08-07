@@ -6,7 +6,7 @@ public static class ProjectBuilder
 
   public static void BuildWindows()
   {
-    BuildPlayerOptions buildPlayerOptions = new BuildPlayerOptions
+    BuildPlayerOptions buildPlayerOptions = new()
     {
       scenes = scenes,
       locationPathName = "Builds/Windows/Template.exe",
@@ -19,12 +19,12 @@ public static class ProjectBuilder
 
   public static void BuildWebGL()
   {
-    BuildPlayerOptions buildPlayerOptions = new BuildPlayerOptions
+    BuildPlayerOptions buildPlayerOptions = new()
     {
       scenes = scenes,
       locationPathName = "Builds/WebGL/Template",
       target = BuildTarget.WebGL,
-      options = BuildOptions.CompressWithLz4HC
+      options = BuildOptions.None
     };
 
     BuildPipeline.BuildPlayer(buildPlayerOptions);
