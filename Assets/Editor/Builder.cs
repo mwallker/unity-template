@@ -1,17 +1,14 @@
 using System.Collections.Generic;
-using System.Diagnostics;
 using UnityEditor;
 
-public static class ProjectBuilder
+public class Builder
 {
-  private const string APP_NAME = "Template";
-
-  public static void BuildWindows()
+  public static void ReleaseWindows()
   {
     BuildPlayerOptions buildPlayerOptions = new()
     {
       scenes = GetEnabledScenes(),
-      locationPathName = $"Builds/Windows/{APP_NAME}.exe",
+      locationPathName = $"Builds/Windows/{PlayerSettings.productName}.exe",
       target = BuildTarget.StandaloneWindows64,
       options = BuildOptions.None
     };
@@ -19,12 +16,12 @@ public static class ProjectBuilder
     BuildPipeline.BuildPlayer(buildPlayerOptions);
   }
 
-  public static void BuildWebGL()
+  public static void ReleaseWebGL()
   {
     BuildPlayerOptions buildPlayerOptions = new()
     {
       scenes = GetEnabledScenes(),
-      locationPathName = $"Builds/WebGL/{APP_NAME}",
+      locationPathName = $"Builds/WebGL/{PlayerSettings.productName}",
       target = BuildTarget.WebGL,
       options = BuildOptions.None
     };
@@ -32,25 +29,28 @@ public static class ProjectBuilder
     BuildPipeline.BuildPlayer(buildPlayerOptions);
   }
 
-  public static void BuildAndroid()
+  public static void ReleaseAndroid()
   {
     BuildPlayerOptions buildPlayerOptions = new()
     {
       scenes = GetEnabledScenes(),
-      locationPathName = $"Builds/Android/{APP_NAME}.apk",
+      locationPathName = $"Builds/Android/{PlayerSettings.productName}.apk",
       target = BuildTarget.Android,
       options = BuildOptions.None,
     };
 
+    PlayerSettings.SetScriptingBackend(BuildTargetGroup.Android, ScriptingImplementation.IL2CPP);
+    PlayerSettings.Android.bundleVersionCode++;
+
     BuildPipeline.BuildPlayer(buildPlayerOptions);
   }
 
-  public static void BuildIOS()
+  public static void ReleaseIOS()
   {
     BuildPlayerOptions buildPlayerOptions = new()
     {
       scenes = GetEnabledScenes(),
-      locationPathName = $"Builds/iOS/{APP_NAME}",
+      locationPathName = $"Builds/iOS/{PlayerSettings.productName}",
       target = BuildTarget.iOS,
       options = BuildOptions.None,
     };
