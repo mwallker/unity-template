@@ -1,16 +1,32 @@
 # unity-ci-template
 
+## Environment Setup
+Install Jenkins using MacOS package manager
+```
+brew install jenkins-lts
+```
+
 ## Basic project structure
 In top navigation menu select `Assets > Create Default Folders`
 
 ## How to build
+
+### Android settings
+
+```
+set projectpath=".\"
+set logpath=".\Logs\Build-Android.log"
+set unitypath="C:\Program Files\Unity\Hub\Editor\2022.3.9f1\Editor\Unity.exe"
+set buildpath=".\Builds\Android"
+set method="ProjectBuilder.BuildAndroid"
+```
 
 ### WebGL settings
 
 ```
 set projectpath=".\"
 set logpath=".\Logs\Build-WebGL.log"
-set unitypath="C:\Program Files\Unity\Hub\Editor\2022.3.6f1\Editor\Unity.exe"
+set unitypath="C:\Program Files\Unity\Hub\Editor\2022.3.9f1\Editor\Unity.exe"
 set buildpath=".\Builds\WebGL"
 set method="ProjectBuilder.BuildWebGL"
 ```
@@ -20,7 +36,7 @@ set method="ProjectBuilder.BuildWebGL"
 ```
 set projectpath=".\"
 set logpath=".\Logs\Build-Windows.log"
-set unitypath="C:\Program Files\Unity\Hub\Editor\2022.3.6f1\Editor\Unity.exe"
+set unitypath="C:\Program Files\Unity\Hub\Editor\2022.3.9f1\Editor\Unity.exe"
 set buildpath=".\Builds\Windows"
 set method="ProjectBuilder.BuildWindows"
 ```
