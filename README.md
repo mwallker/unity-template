@@ -1,9 +1,22 @@
 # unity-ci-template
 
 ## Environment Setup
-Install Jenkins using MacOS package manager
+Install `Jenkins` using MacOS package manager:
 ```
 brew install jenkins-lts
+```
+
+Create `Freestyle Project` or `Multi-configuration project` in `Jenkins` management portal. In `Source code management` section add reference to github repository and target branch. In `Build Triggers` section check `GitHub hook trigger for GITScm polling`. In `Build Steps` specify needed commands.
+
+Install `ngrok` client:
+```
+brew install ngrok/ngrok/ngrok
+```
+
+Add Payload URL to github webhooks section and specify build events:
+
+```
+https://4f8f-2a02-a310-c25c-2800-6555-37ac-cfde-4229.ngrok-free.app/github-webhook/
 ```
 
 ## Basic project structure
@@ -14,31 +27,25 @@ In top navigation menu select `Assets > Create Default Folders`
 ### Android settings
 
 ```
-set projectpath=".\"
 set logpath=".\Logs\Build-Android.log"
-set unitypath="C:\Program Files\Unity\Hub\Editor\2022.3.9f1\Editor\Unity.exe"
 set buildpath=".\Builds\Android"
-set method="ProjectBuilder.BuildAndroid"
+set method="Builder.ReleaseAndroid"
 ```
 
 ### WebGL settings
 
 ```
-set projectpath=".\"
 set logpath=".\Logs\Build-WebGL.log"
-set unitypath="C:\Program Files\Unity\Hub\Editor\2022.3.9f1\Editor\Unity.exe"
 set buildpath=".\Builds\WebGL"
-set method="ProjectBuilder.BuildWebGL"
+set method="Builder.ReleaseWebGL"
 ```
 
 ### Windows settings
 
 ```
-set projectpath=".\"
 set logpath=".\Logs\Build-Windows.log"
-set unitypath="C:\Program Files\Unity\Hub\Editor\2022.3.9f1\Editor\Unity.exe"
 set buildpath=".\Builds\Windows"
-set method="ProjectBuilder.BuildWindows"
+set method="Builder.ReleaseWindows"
 ```
 
 ### Cleanup
@@ -51,7 +58,7 @@ rmdir %buildpath%
 ### Build script
 
 ```
-%unitypath% -quit -batchmode -projectpath %projectpath% -executeMethod %method% -logFile %logpath%
+%unitypath% -quit -batchmode -executeMethod %method% -logFile %logpath%
 ```
 
 ## Graphics
