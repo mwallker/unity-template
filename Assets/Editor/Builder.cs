@@ -1,9 +1,10 @@
 using System.Collections.Generic;
 using UnityEditor;
+using UnityEditor.Build;
 
 public class Builder
 {
-  public static void ReleaseWindows()
+  public static void RunWindows()
   {
     BuildPlayerOptions buildPlayerOptions = new()
     {
@@ -16,7 +17,7 @@ public class Builder
     BuildPipeline.BuildPlayer(buildPlayerOptions);
   }
 
-  public static void ReleaseWebGL()
+  public static void RunWebGL()
   {
     BuildPlayerOptions buildPlayerOptions = new()
     {
@@ -29,7 +30,7 @@ public class Builder
     BuildPipeline.BuildPlayer(buildPlayerOptions);
   }
 
-  public static void ReleaseAndroid()
+  public static void RunAndroid()
   {
     BuildPlayerOptions buildPlayerOptions = new()
     {
@@ -39,13 +40,13 @@ public class Builder
       options = BuildOptions.None,
     };
 
-    PlayerSettings.SetScriptingBackend(BuildTargetGroup.Android, ScriptingImplementation.IL2CPP);
+    PlayerSettings.SetScriptingBackend(NamedBuildTarget.Android, ScriptingImplementation.IL2CPP);
     PlayerSettings.Android.bundleVersionCode++;
 
     BuildPipeline.BuildPlayer(buildPlayerOptions);
   }
 
-  public static void ReleaseIOS()
+  public static void RunIOS()
   {
     BuildPlayerOptions buildPlayerOptions = new()
     {

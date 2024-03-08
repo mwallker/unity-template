@@ -1,7 +1,7 @@
 set logpath=".\Logs\Build-Android.log"
-set unitypath="C:\Program Files\Unity\Hub\Editor\2022.3.9f1\Editor\Unity.exe"
+set unitypath="C:\Program Files\Unity\Hub\Editor\2023.2.13f1\Editor\Unity.exe"
 set buildpath=".\Builds\Android"
-set method="ProjectBuilder.BuildAndroid"
+set method="Builder.RunAndroid"
 
 del %logpath%
 rmdir %buildpath%

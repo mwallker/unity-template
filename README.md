@@ -29,7 +29,7 @@ In top navigation menu select `Assets > Create Default Folders`
 ```
 set logpath=".\Logs\Build-Android.log"
 set buildpath=".\Builds\Android"
-set method="Builder.ReleaseAndroid"
+set method="Builder.RunAndroid"
 ```
 
 ### WebGL settings
@@ -37,7 +37,7 @@ set method="Builder.ReleaseAndroid"
 ```
 set logpath=".\Logs\Build-WebGL.log"
 set buildpath=".\Builds\WebGL"
-set method="Builder.ReleaseWebGL"
+set method="Builder.RunWebGL"
 ```
 
 ### Windows settings
@@ -45,7 +45,7 @@ set method="Builder.ReleaseWebGL"
 ```
 set logpath=".\Logs\Build-Windows.log"
 set buildpath=".\Builds\Windows"
-set method="Builder.ReleaseWindows"
+set method="Builder.RunWindows"
 ```
 
 ### Cleanup
