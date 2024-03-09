@@ -1,4 +1,4 @@
-# unity-ci-template
+# unity-mobile-template
 
 ## Environment Setup
 Install `Jenkins` using MacOS package manager:
@@ -38,6 +38,10 @@ set method="Builder.RunAndroid"
 set logpath=".\Logs\Build-WebGL.log"
 set buildpath=".\Builds\WebGL"
 set method="Builder.RunWebGL"
+```
+
+```
+npx http-server -b -g -o
 ```
 
 ### Windows settings

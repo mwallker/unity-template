@@ -4,7 +4,7 @@ using UnityEditor.Build;
 
 public class Builder
 {
-  public static void RunWindows()
+  public static void Run_Windows()
   {
     BuildPlayerOptions buildPlayerOptions = new()
     {
@@ -17,7 +17,7 @@ public class Builder
     BuildPipeline.BuildPlayer(buildPlayerOptions);
   }
 
-  public static void RunWebGL()
+  public static void Run_WebGL()
   {
     BuildPlayerOptions buildPlayerOptions = new()
     {
@@ -30,7 +30,7 @@ public class Builder
     BuildPipeline.BuildPlayer(buildPlayerOptions);
   }
 
-  public static void RunAndroid()
+  public static void Run_Android()
   {
     BuildPlayerOptions buildPlayerOptions = new()
     {
@@ -46,7 +46,7 @@ public class Builder
     BuildPipeline.BuildPlayer(buildPlayerOptions);
   }
 
-  public static void RunIOS()
+  public static void Run_iOS()
   {
     BuildPlayerOptions buildPlayerOptions = new()
     {
