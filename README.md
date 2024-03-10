@@ -38,7 +38,13 @@ npx http-server -b -g -o
 1. Install Addressable package
 2. Go to `Windows > Asset Management > Addressables > Groups`
 3. Press `Create Addressables Settings` to setup package
-4. 
+4. Create new default asset group and in settings insure value of `Content Update Restrictions`
+
+## UI Toolkit
+
+1. Create view `Create > UI Toolkit > UI Document`
+2. Create style sheet `Create > UI Toolkit > Style Sheet`
+3. Create script with references to `VisualElement` and `StyleSheet` references to act as ViewModel
 
 ## Graphics
 
