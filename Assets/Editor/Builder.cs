@@ -4,62 +4,47 @@ using UnityEditor.Build;
 
 public class Builder
 {
-  public static void Run_Windows()
-  {
-    BuildPlayerOptions buildPlayerOptions = new()
-    {
-      scenes = GetEnabledScenes(),
-      locationPathName = $"Builds/Windows/{PlayerSettings.productName}.exe",
-      target = BuildTarget.StandaloneWindows64,
-      options = BuildOptions.None
-    };
-
-    BuildPipeline.BuildPlayer(buildPlayerOptions);
-  }
-
-  public static void Run_WebGL()
-  {
-    BuildPlayerOptions buildPlayerOptions = new()
-    {
-      scenes = GetEnabledScenes(),
-      locationPathName = $"Builds/WebGL/{PlayerSettings.productName}",
-      target = BuildTarget.WebGL,
-      options = BuildOptions.None
-    };
-
-    BuildPipeline.BuildPlayer(buildPlayerOptions);
-  }
-
   public static void Run_Android()
   {
-    BuildPlayerOptions buildPlayerOptions = new()
-    {
-      scenes = GetEnabledScenes(),
-      locationPathName = $"Builds/Android/{PlayerSettings.productName}.apk",
-      target = BuildTarget.Android,
-      options = BuildOptions.None,
-    };
-
     PlayerSettings.SetScriptingBackend(NamedBuildTarget.Android, ScriptingImplementation.IL2CPP);
     PlayerSettings.Android.bundleVersionCode++;
 
-    BuildPipeline.BuildPlayer(buildPlayerOptions);
+    Run(BuildTarget.Android, $"Builds/Android/{PlayerSettings.productName}.apk");
   }
 
   public static void Run_iOS()
   {
+    Run(BuildTarget.iOS, $"Builds/iOS/{PlayerSettings.productName}");
+  }
+
+  public static void Run_WebGL()
+  {
+    PlayerSettings.WebGL.compressionFormat = WebGLCompressionFormat.Disabled;
+    PlayerSettings.WebGL.enableWebGPU = true;
+    PlayerSettings.WebGL.webAssemblyTable = true;
+    PlayerSettings.WebGL.webAssemblyBigInt = true;
+
+    Run(BuildTarget.WebGL, $"Builds/WebGL/{PlayerSettings.productName}");
+  }
+
+  public static void Run_Windows()
+  {
+    Run(BuildTarget.StandaloneWindows64, $"Builds/Windows/{PlayerSettings.productName}.exe");
+  }
+
+  private static void Run(BuildTarget target, string locationPathName)
+  {
     BuildPlayerOptions buildPlayerOptions = new()
     {
       scenes = GetEnabledScenes(),
-      locationPathName = $"Builds/iOS/{PlayerSettings.productName}",
-      target = BuildTarget.iOS,
+      locationPathName = locationPathName,
+      target = target,
       options = BuildOptions.None,
     };
 
     BuildPipeline.BuildPlayer(buildPlayerOptions);
   }
 
-  // Helper method to get the paths of all scenes in the project
   private static string[] GetEnabledScenes()
   {
     List<string> ScenePaths = new();

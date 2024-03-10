@@ -1,69 +1,44 @@
 # unity-mobile-template
 
+## Basic project structure
+In top navigation menu select `Assets > Create Default Folders`
+
 ## Environment Setup
-Install `Jenkins` using MacOS package manager:
-```
-brew install jenkins-lts
-```
-
-Create `Freestyle Project` or `Multi-configuration project` in `Jenkins` management portal. In `Source code management` section add reference to github repository and target branch. In `Build Triggers` section check `GitHub hook trigger for GITScm polling`. In `Build Steps` specify needed commands.
-
-Install `ngrok` client:
+1. Install `ngrok` client:
 ```
 brew install ngrok/ngrok/ngrok
 ```
 
-Add Payload URL to github webhooks section and specify build events:
+2. Install `Jenkins` using MacOS package manager:
+```
+brew install jenkins-lts
+```
+
+3. Create `Freestyle Project` or `Multi-configuration project` in `Jenkins` management portal.
+4. In `Source code management` section add reference to github repository and target branch.
+5. In `Build Triggers` section check `GitHub hook trigger for GITScm polling`.
+6. In `Build Steps` specify building command from section below.
+7. Add Payload URL to github webhooks section and specify build events:
 
 ```
 https://4f8f-2a02-a310-c25c-2800-6555-37ac-cfde-4229.ngrok-free.app/github-webhook/
 ```
 
-## Basic project structure
-In top navigation menu select `Assets > Create Default Folders`
-
 ## How to build
 
-### Android settings
+Execute building script `run_build.bat` (when running on Windows) or `run_build.sh` (for Mac), with providing platform as argument (Android, WebGL, iOS, Windows)
 
-```
-set logpath=".\Logs\Build-Android.log"
-set buildpath=".\Builds\Android"
-set method="Builder.RunAndroid"
-```
-
-### WebGL settings
-
-```
-set logpath=".\Logs\Build-WebGL.log"
-set buildpath=".\Builds\WebGL"
-set method="Builder.RunWebGL"
-```
-
+If building for `WebGL`, build can be tested with running local server (`node.js` required)
 ```
 npx http-server -b -g -o
 ```
 
-### Windows settings
+## Downloadable content
 
-```
-set logpath=".\Logs\Build-Windows.log"
-set buildpath=".\Builds\Windows"
-set method="Builder.RunWindows"
-```
-
-### Cleanup
-
-```
-del %logpath%
-rmdir %buildpath%
-```
-
-### Build script
-
-```
-%unitypath% -quit -batchmode -executeMethod %method% -logFile %logpath%
-```
+1. Install Addressable package
+2. Go to `Windows > Asset Management > Addressables > Groups`
+3. Press `Create Addressables Settings` to setup package
+4. 
 
 ## Graphics
 
