@@ -1,6 +1,7 @@
 <engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/Views/LoaderStyle.uss?fileID=7433441132597879392&amp;guid=d7e4f126fe437874b88691ce68a8330e&amp;type=3#LoaderStyle" />
-    <engine:VisualElement name="Root" style="flex-grow: 1;">
+    <engine:VisualElement name="root">
         <engine:Label text="Label" />
+        <engine:ProgressBar value="65.6" title="Loading" name="progress" />
     </engine:VisualElement>
 </engine:UXML>

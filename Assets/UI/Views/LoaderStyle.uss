@@ -1,5 +1,18 @@
-#Root {
+#root {
     bottom: auto;
-    justify-content: center;
+    justify-content: flex-end;
+    flex-direction: column;
     align-items: center;
+    align-self: center;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    background-color: rgb(255, 158, 0);
+}
+
+#progress {
+    bottom: 0;
+    width: 100%;
+    justify-content: flex-start;
+    align-self: center;
 }

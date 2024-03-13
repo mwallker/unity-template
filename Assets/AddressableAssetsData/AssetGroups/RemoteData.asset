@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: Basic Assets
+  m_Name: RemoteData
   m_EditorClassIdentifier: 
-  m_GroupName: Basic Assets
+  m_GroupName: LoadableScenes
   m_Data:
     m_SerializedData: []
-  m_GUID: e9e418bb92caf2946b3e3dc1b09e619c
+  m_GUID: 2a45394c1fe57884b925fd6169611eeb
   m_SerializeEntries: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 9972b5cd53109e2449adad108e195771, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 7619a659b5e35384d9537009d3ab5dc4, type: 2}
-    - {fileID: 11400000, guid: 6e4170afd57a0c54f9fa40bb97ba60be, type: 2}
+    - {fileID: 11400000, guid: 6b31aa6ec4f3c704cb4566d95959c334, type: 2}
+    - {fileID: 11400000, guid: b7aed0553540c29478a9e5fad08523a2, type: 2}
