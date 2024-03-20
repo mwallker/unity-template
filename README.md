@@ -46,6 +46,12 @@ npx http-server -b -g -o
 2. Create style sheet `Create > UI Toolkit > Style Sheet`
 3. Create script with references to `VisualElement` and `StyleSheet` references to act as ViewModel
 
+## Disable Domain reload in Play Mode
+
+1. Go to `Edit > Project Settings > Editor`
+2. Make sure `Enter Play Mode Options` is enabled
+3. Disable `Reload Domain`
+
 ## Graphics
 
 ### URP
