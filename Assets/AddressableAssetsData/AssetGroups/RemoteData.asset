@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
   m_Name: RemoteData
   m_EditorClassIdentifier: 
-  m_GroupName: LoadableScenes
+  m_GroupName: RemoteData
   m_Data:
     m_SerializedData: []
   m_GUID: 2a45394c1fe57884b925fd6169611eeb

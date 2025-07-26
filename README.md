@@ -4,6 +4,12 @@
 In top navigation menu select `Assets > Create Default Folders`
 
 ## Environment Setup
+1. Install Unity via Hub. Set path to installation with environment variable:
+```
+SET UNITY_VERSION = "6000.0.53f1"
+SET UNITY_PATH="C:\Program Files\Unity\Hub\Editor\%UNITY_VERSION%\Editor\Unity.exe"
+```
+
 1. Install `ngrok` client:
 ```
 brew install ngrok/ngrok/ngrok

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
   m_Name: LocalData
   m_EditorClassIdentifier: 
-  m_GroupName: StaticConfigs
+  m_GroupName: LocalData
   m_Data:
     m_SerializedData: []
   m_GUID: e9e418bb92caf2946b3e3dc1b09e619c
