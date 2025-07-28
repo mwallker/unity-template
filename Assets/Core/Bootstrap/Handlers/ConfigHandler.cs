@@ -1,12 +1,14 @@
+
+
 using System.Threading.Tasks;
 
 using UnityEngine.AddressableAssets;
 using UnityEngine.SceneManagement;
 using UnityEngine.ResourceManagement.AsyncOperations;
 
-public class ContentHandler : AbstractHandler
+public class ConfigHandler : AbstractHandler
 {
-    public ContentHandler()
+    public ConfigHandler()
     {
 
     }

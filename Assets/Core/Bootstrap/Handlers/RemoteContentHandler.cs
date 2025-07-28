@@ -6,9 +6,9 @@ using UnityEngine.AddressableAssets;
 using UnityEngine.SceneManagement;
 using UnityEngine.ResourceManagement.AsyncOperations;
 
-public class ContentHandler : AbstractHandler
+public class RemoteContentHandler : AbstractHandler
 {
-    public ContentHandler()
+    public RemoteContentHandler()
     {
 
     }

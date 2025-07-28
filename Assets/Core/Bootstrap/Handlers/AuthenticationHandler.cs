@@ -9,17 +9,17 @@ public class AuthenticationHandler : AbstractHandler
 {
     public AuthenticationHandler()
     {
-        _stage.Init("authorization_pending");
+        // _stage.Init("authorization_pending");
     }
 
     public override async Task<IHandlerContext> Handle(IHandlerContext context)
     {
-        context.AddStage(_stage);
+        // context.AddStage(_stage);
 
         // Check for internet connection
         if (!Utilities.CheckForInternetConnection())
         {
-            _stage.Fail("no_connection");
+            // _stage.Fail("no_connection");
 
             return context;
         }
@@ -37,11 +37,11 @@ public class AuthenticationHandler : AbstractHandler
                 await AuthenticationService.Instance.SignInAnonymouslyAsync();
             }
 
-            _stage.Fail("no_connection");
+            // _stage.Fail("no_connection");
         }
         catch (System.Exception e)
         {
-            _stage.Fail(e.Message);
+            // _stage.Fail(e.Message);
 
             return context;
         }

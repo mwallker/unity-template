@@ -1,7 +1,5 @@
-using System;
 using UnityEditor;
 using UnityEditor.Build;
-using UnityEditor.Build.Reporting;
 
 public class AndroidBuilder : AbstractBuilder
 {
@@ -24,7 +22,6 @@ public class AndroidBuilder : AbstractBuilder
             options = BuildOptions.Development,
         };
 
-        // Console.WriteLine(environment);
 
         PrintBuildReport(BuildPipeline.BuildPlayer(buildPlayerOptions));
     }

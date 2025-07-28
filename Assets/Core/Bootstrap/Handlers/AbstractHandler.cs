@@ -1,5 +1,4 @@
 using System.Threading.Tasks;
-using UnityEngine;
 
 public enum HandlerStatus
 {
@@ -30,7 +29,7 @@ public struct HandlerStage
             return;
         }
 
-        Progress = Mathf.Clamp(progress, 0f, 1f);
+        // Progress = Mathf.Clamp(progress, 0f, 1f);
     }
 
     public void Complete()
@@ -64,11 +63,11 @@ public abstract class AbstractHandler : IHandler
 {
     protected IHandler _nextHandler;
 
-    protected HandlerStage _stage;
+    public string Id { get; private set; }
 
     public AbstractHandler()
     {
-        _stage = new();
+        // _stage = new();
     }
 
     public IHandler Next(IHandler handler)

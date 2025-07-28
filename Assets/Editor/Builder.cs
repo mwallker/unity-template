@@ -1,11 +1,18 @@
 using System;
 
 using UnityEditor;
+using UnityEditor.AddressableAssets.Build;
+using UnityEditor.AddressableAssets.Settings;
 using UnityEditor.Build.Reporting;
-
 
 public abstract class AbstractBuilder
 {
+    [Serializable]
+    private class BuildConfigData
+    {
+        public string version;
+    }
+
     protected static string[] GetEnabledScenes()
     {
         return EditorBuildSettingsScene.GetActiveSceneList(EditorBuildSettings.scenes);
@@ -20,5 +27,12 @@ public abstract class AbstractBuilder
         Console.WriteLine($"Build Type: {report.summary.buildType}");
         Console.WriteLine($"itrltn:     {report.summary.totalTime}");
         Console.WriteLine("===================================================");
+    }
+
+    public static void BuildContent()
+    {
+        AddressableAssetSettings.BuildPlayerContent(out AddressablesPlayerBuildResult result);
+
+        Console.WriteLine(result.Duration);
     }
 }

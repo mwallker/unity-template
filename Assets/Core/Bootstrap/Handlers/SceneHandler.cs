@@ -14,36 +14,30 @@ public class SceneHandler : AbstractHandler
     public SceneHandler(AssetReference scene)
     {
         _scene = scene;
+        // _stage.Init("");
     }
 
     public override async Task<IHandlerContext> Handle(IHandlerContext context)
     {
-        _stage.Progress = 0f;
-        _stage.Message = "loading_scene";
-        _stage.Status = HandlerStatus.Pending;
+        // context.AddStage(_stage);
 
         AsyncOperationHandle handler = Addressables.LoadSceneAsync(_scene, LoadSceneMode.Additive);
 
         while (!handler.IsDone)
         {
-            DownloadStatus status = handler.GetDownloadStatus();
-
-            _stage.Progress = status.Percent;
+            // _stage.Update(handler.GetDownloadStatus().Percent);
 
             await Task.Yield();
         }
 
         if (handler.Status == AsyncOperationStatus.Failed)
         {
-            _stage.Status = HandlerStatus.Failed;
-            _stage.Progress = 1f;
-            _stage.Error = handler.OperationException.Message;
+            // _stage.Fail(handler.OperationException.Message);
 
             return context;
         }
 
-        _stage.Progress = 1f;
-        _stage.Status = HandlerStatus.Completed;
+        // _stage.Complete();
 
         return await base.Handle(context);
     }

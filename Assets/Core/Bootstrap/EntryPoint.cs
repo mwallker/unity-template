@@ -18,6 +18,7 @@ public class EntryPoint : MonoBehaviour
     async void Start()
     {
         // Services initialization
+        CheckVersionHandler checkVersionHandler = new();
         AuthenticationHandler authenticationHandler = new();
         RemoteConfigHandler remoteConfigsHandler = new();
         SceneHandler sceneHandler = new(_nextScene);
@@ -27,9 +28,9 @@ public class EntryPoint : MonoBehaviour
             //.Next(remoteConfigsHandler)
             //.Next(sceneHandler);
 
-        await authenticationHandler.Start(_context);
+        await checkVersionHandler.Start(_context);
 
-        Debug.Log($"Load start {_context.GetStage().Id}");
+        Debug.Log($"Load start {_context.GetStage()}");
     }
 
     void Update()

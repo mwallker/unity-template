@@ -12,8 +12,8 @@ public class EntryPointContext : IHandlerContext
 
         _stages.Add(initialStage);
 
-        initialStage.Init("game_initialized");
-        initialStage.Complete();
+        // initialStage.Init("game_initialized");
+        // initialStage.Complete();
     }
 
     public void AddStage(HandlerStage stage)
